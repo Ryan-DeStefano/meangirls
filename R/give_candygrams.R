@@ -36,6 +36,44 @@ give_candygrams <- function(person, number,
 
 }
 
+
+#' Announces the number of candygrams for 1 or more people.
+#'
+#' @param people The candygram recipients
+#' @param numbers How many grams they got
+#' @param extra_message A vector of possible extra commentary.
+#'
+#' @return A candy gram announcement
+#'
+#' @importFrom stringr str_detect str_to_title
+#' @importFrom english as.english
+#'
+#' @export
+give_many_candygrams <- function(people, numbers,
+                            extra_messages = NULL) {
+
+  for (i in 1:length(people)) {
+
+    if(is.na(extra_messages[i])){
+
+      print(give_candygrams(people[i], numbers[i]))
+
+    }
+
+    else {
+
+      print(give_candygrams(people[i], numbers[i], extra_messages[i]))
+
+    }
+
+  }
+
+}
+
+people <- c("Ryan", "Lukas", "Richard", "David")
+numbers <- c(10, 10, 3, 20)
+extra_messages <- c("Incredible", NULL, NULL, NULL)
+
 #' Tacks commentary on to candygram announcement
 #'
 #' @param person The candygram recipient
